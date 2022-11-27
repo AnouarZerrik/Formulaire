@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnInsert = new System.Windows.Forms.Button();
             this.id_txt = new System.Windows.Forms.TextBox();
             this.name_txt = new System.Windows.Forms.TextBox();
@@ -42,21 +41,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSelect_Click = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(377, 150);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(39, 332);
+            this.btnInsert.Location = new System.Drawing.Point(17, 332);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 23);
             this.btnInsert.TabIndex = 1;
@@ -82,7 +71,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(120, 332);
+            this.btnUpdate.Location = new System.Drawing.Point(98, 332);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 5;
@@ -92,7 +81,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(201, 332);
+            this.btnDelete.Location = new System.Drawing.Point(179, 332);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 6;
@@ -131,7 +120,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(98, 89);
+            this.comboBox1.Location = new System.Drawing.Point(76, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(178, 21);
             this.comboBox1.TabIndex = 11;
@@ -167,7 +156,7 @@
             // 
             // btnSelect_Click
             // 
-            this.btnSelect_Click.Location = new System.Drawing.Point(429, 33);
+            this.btnSelect_Click.Location = new System.Drawing.Point(260, 33);
             this.btnSelect_Click.Name = "btnSelect_Click";
             this.btnSelect_Click.Size = new System.Drawing.Size(75, 23);
             this.btnSelect_Click.TabIndex = 15;
@@ -179,7 +168,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 380);
+            this.ClientSize = new System.Drawing.Size(622, 367);
             this.Controls.Add(this.btnSelect_Click);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -193,19 +182,15 @@
             this.Controls.Add(this.name_txt);
             this.Controls.Add(this.id_txt);
             this.Controls.Add(this.btnInsert);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.TextBox id_txt;
         private System.Windows.Forms.TextBox name_txt;
