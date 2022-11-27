@@ -77,6 +77,7 @@ namespace WindowsFormsApplication1
             name_txt.Enabled = true;
             price_txt.Enabled = true;
             id_txt.Enabled = true;
+            comboBox1.Enabled = false;
             name_txt.Clear();
             id_txt.Clear();
             price_txt.Clear();
@@ -98,6 +99,7 @@ namespace WindowsFormsApplication1
             name_txt.Enabled = true;
             id_txt.Enabled = true;
             price_txt.Enabled = true;
+            comboBox1.Enabled = false;
             cmd.ExecuteNonQuery();
             cnx.Close();
         }
@@ -116,6 +118,7 @@ namespace WindowsFormsApplication1
             name_txt.Enabled = true;
             id_txt.Enabled = true;
             price_txt.Enabled = true;
+            comboBox1.Enabled = false;
             cmd.ExecuteNonQuery();
             cnx.Close();
         }
