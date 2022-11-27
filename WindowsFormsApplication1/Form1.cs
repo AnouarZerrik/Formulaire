@@ -47,7 +47,6 @@ namespace WindowsFormsApplication1
             cnx.Open();
             cmd.Connection = cnx;
             valeur = 1;
-            cmd.ExecuteNonQuery();
             btnInsert.Enabled = false;
             btnUpdate.Enabled = false;
             btnDelete.Enabled = false;
@@ -80,7 +79,6 @@ namespace WindowsFormsApplication1
             id_txt.Enabled = true;
             price_txt.Enabled = true;
             comboBox1.Enabled = false;
-            cmd.ExecuteNonQuery();
             cnx.Close();
         }
 
@@ -99,7 +97,6 @@ namespace WindowsFormsApplication1
             id_txt.Enabled = true;
             price_txt.Enabled = true;
             comboBox1.Enabled = false;
-            cmd.ExecuteNonQuery();
             cnx.Close();
         }
 
