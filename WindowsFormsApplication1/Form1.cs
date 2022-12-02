@@ -177,8 +177,6 @@ namespace WindowsFormsApplication1
 
         }
 
-      
-
         private void txtId_dossier_TextChanged(object sender, EventArgs e)
         {
 
@@ -294,10 +292,6 @@ namespace WindowsFormsApplication1
                 price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
                 cnx.Close();
             }
-
-
-
-
         }
 
         
