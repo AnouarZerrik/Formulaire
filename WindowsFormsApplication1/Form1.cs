@@ -17,10 +17,6 @@ namespace WindowsFormsApplication1
         }
 
 
-       
-
-
-
         static string chaine = @"Data Source=localhost;Initial Catalog=form;Integrated Security=True";
         static SqlConnection cnx = new SqlConnection(chaine);
         static SqlCommand cmd = new SqlCommand();
@@ -28,7 +24,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            btnSelect_Click.Enabled = true;
+            valeur = 0;
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
@@ -37,13 +33,14 @@ namespace WindowsFormsApplication1
             id_txt.Enabled = false;
             name_txt.Enabled = false;
             price_txt.Enabled = false;
-            comboBox1.Enabled = false;
+            comboBox1.Enabled = true;
+            cbx();
         }
 
 
         private void btnInsert_Click(object sender, EventArgs e)
-        {   
-            
+        {
+
             cnx.Open();
             cmd.Connection = cnx;
             valeur = 1;
@@ -52,15 +49,14 @@ namespace WindowsFormsApplication1
             btnDelete.Enabled = false;
             validate.Enabled = true;
             cancel.Enabled = true;
-            btnSelect_Click.Enabled = false;
             name_txt.Enabled = true;
             price_txt.Enabled = true;
             id_txt.Enabled = true;
-            comboBox1.Enabled = false;
+            comboBox1.Enabled = true;
             name_txt.Clear();
             id_txt.Clear();
             price_txt.Clear();
-             cnx.Close(); 
+            cnx.Close();
 
         }
 
@@ -74,11 +70,10 @@ namespace WindowsFormsApplication1
             btnDelete.Enabled = false;
             validate.Enabled = true;
             cancel.Enabled = true;
-            btnSelect_Click.Enabled = false;
             name_txt.Enabled = true;
             id_txt.Enabled = true;
             price_txt.Enabled = true;
-            comboBox1.Enabled = false;
+            comboBox1.Enabled = true;
             cnx.Close();
         }
 
@@ -92,15 +87,14 @@ namespace WindowsFormsApplication1
             btnDelete.Enabled = false;
             validate.Enabled = true;
             cancel.Enabled = true;
-            btnSelect_Click.Enabled = false;
             name_txt.Enabled = true;
             id_txt.Enabled = true;
             price_txt.Enabled = true;
-            comboBox1.Enabled = false;
+            comboBox1.Enabled = true;
             cnx.Close();
         }
 
-        
+
         private void validate_Click(object sender, EventArgs e)
         {
             if (valeur == 1)
@@ -113,7 +107,6 @@ namespace WindowsFormsApplication1
                 {
                     cmd.CommandText = "insert into product(id, name,price) values('" + id_txt.Text + "','" + name_txt.Text + "','" + price_txt.Text + "') ";
                     cmd.ExecuteNonQuery();
-                    btnSelect_Click.Enabled = true;
                     btnInsert.Enabled = true;
                     btnUpdate.Enabled = true;
                     btnDelete.Enabled = true;
@@ -122,14 +115,11 @@ namespace WindowsFormsApplication1
                     id_txt.Enabled = false;
                     name_txt.Enabled = false;
                     price_txt.Enabled = false;
-                    comboBox1.Enabled = false;
-
-                    name_txt.Clear();
-                    id_txt.Clear();
-                    price_txt.Clear();
-
+                    comboBox1.Enabled = true;
+                    
                 }
                 cnx.Close();
+                cbx();
 
             }
 
@@ -143,7 +133,6 @@ namespace WindowsFormsApplication1
                 {
                     cmd.CommandText = "update product set name ='" + name_txt.Text + "', price ='" + price_txt.Text + "' where id='" + id_txt.Text + "' ";
                     cmd.ExecuteNonQuery();
-                    btnSelect_Click.Enabled = true;
                     btnInsert.Enabled = true;
                     btnUpdate.Enabled = true;
                     btnDelete.Enabled = true;
@@ -152,26 +141,23 @@ namespace WindowsFormsApplication1
                     id_txt.Enabled = false;
                     name_txt.Enabled = false;
                     price_txt.Enabled = false;
-                    comboBox1.Enabled = false;
+                    comboBox1.Enabled = true;
 
-                    name_txt.Clear();
-                    id_txt.Clear();
-                    price_txt.Clear();
                 }
                 cnx.Close();
+                cbx();
 
             }
             if (valeur == 3)
             {
                 cnx.Open();
                 cmd.Connection = cnx;
-                if (id_txt.Text == "" )
+                if (id_txt.Text == "")
                 { MessageBox.Show("enter the inputs"); }
                 else
                 {
                     cmd.CommandText = "delete from product where id='" + id_txt.Text + "' ";
                     cmd.ExecuteNonQuery();
-                    btnSelect_Click.Enabled = true;
                     btnInsert.Enabled = true;
                     btnUpdate.Enabled = true;
                     btnDelete.Enabled = true;
@@ -180,23 +166,18 @@ namespace WindowsFormsApplication1
                     id_txt.Enabled = false;
                     name_txt.Enabled = false;
                     price_txt.Enabled = false;
-                    comboBox1.Enabled = false;
+                    comboBox1.Enabled = true;
 
-                    name_txt.Clear();
-                    id_txt.Clear();
-                    price_txt.Clear();
+                    
 
                 }
                 cnx.Close();
-
+                cbx();
             }
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+      
 
         private void txtId_dossier_TextChanged(object sender, EventArgs e)
         {
@@ -221,7 +202,6 @@ namespace WindowsFormsApplication1
         private void cancel_Click(object sender, EventArgs e)
         {
 
-            btnSelect_Click.Enabled = true;
             btnInsert.Enabled = true;
             btnUpdate.Enabled = true;
             btnDelete.Enabled = true;
@@ -230,10 +210,8 @@ namespace WindowsFormsApplication1
             id_txt.Enabled = false;
             name_txt.Enabled = false;
             price_txt.Enabled = false;
-            comboBox1.Enabled = false;
-            name_txt.Clear();
-            id_txt.Clear();
-            price_txt.Clear();
+            comboBox1.Enabled = true;
+            cbx();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,30 +219,87 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void btnSelect_Click_Click(object sender, EventArgs e)
+        public void cbx()
         {
-            cnx.Open();
-            cmd.CommandText = "select * from product";
-            cmd.Connection = cnx;
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            comboBox1.DataSource = dt;
-            btnSelect_Click.Enabled = false;
-            validate.Enabled = false;
-            cancel.Enabled = true;
-            id_txt.Enabled = false;
-            name_txt.Enabled = false;
-            price_txt.Enabled = false;
-            comboBox1.Enabled = true;
-            comboBox1.DisplayMember = "name";
-            comboBox1.ValueMember = "id";
-            name_txt.DataBindings.Clear();
-            id_txt.DataBindings.Clear();
-            price_txt.DataBindings.Clear();
-            name_txt.DataBindings.Add("text", comboBox1.DataSource, "name");
-            id_txt.DataBindings.Add("text", comboBox1.DataSource, "id"); ;
-            price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
-            cnx.Close();
+
+            if (valeur == 0)
+            {
+                cnx.Open();
+                cmd.CommandText = "select * from product";
+                cmd.Connection = cnx;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                comboBox1.DataSource = dt;
+                comboBox1.DisplayMember = "name";
+                comboBox1.ValueMember = "id";
+                name_txt.DataBindings.Clear();
+                id_txt.DataBindings.Clear();
+                price_txt.DataBindings.Clear();
+                name_txt.DataBindings.Add("text", comboBox1.DataSource, "name");
+                id_txt.DataBindings.Add("text", comboBox1.DataSource, "id"); ;
+                price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
+                cnx.Close();
+            }
+            if (valeur == 1)
+            {
+                cnx.Open();
+                cmd.CommandText = "select * from product";
+                cmd.Connection = cnx;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                comboBox1.DataSource = dt;
+                comboBox1.DisplayMember = "name";
+                comboBox1.ValueMember = "id";
+                name_txt.DataBindings.Clear();
+                id_txt.DataBindings.Clear();
+                price_txt.DataBindings.Clear();
+                name_txt.DataBindings.Add("text", comboBox1.DataSource, "name");
+                id_txt.DataBindings.Add("text", comboBox1.DataSource, "id"); ;
+                price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
+                cnx.Close();
+            }
+            if (valeur == 2)
+            {
+                cnx.Open();
+                cmd.CommandText = "select * from product";
+                cmd.Connection = cnx;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                comboBox1.DataSource = dt;
+                comboBox1.DisplayMember = "name";
+                comboBox1.ValueMember = "id";
+                name_txt.DataBindings.Clear();
+                id_txt.DataBindings.Clear();
+                price_txt.DataBindings.Clear();
+                name_txt.DataBindings.Add("text", comboBox1.DataSource, "name");
+                id_txt.DataBindings.Add("text", comboBox1.DataSource, "id"); ;
+                price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
+                cnx.Close();
+            }
+            if (valeur == 3)
+            {
+                cnx.Open();
+                cmd.CommandText = "select * from product";
+                cmd.Connection = cnx;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                comboBox1.DataSource = dt;
+                comboBox1.DisplayMember = "name";
+                comboBox1.ValueMember = "id";
+                name_txt.DataBindings.Clear();
+                id_txt.DataBindings.Clear();
+                price_txt.DataBindings.Clear();
+                name_txt.DataBindings.Add("text", comboBox1.DataSource, "name");
+                id_txt.DataBindings.Add("text", comboBox1.DataSource, "id"); ;
+                price_txt.DataBindings.Add("text", comboBox1.DataSource, "price");
+                cnx.Close();
+            }
+
+
+
+
         }
+
+        
     }
 }
